@@ -84,4 +84,28 @@ public class AlianRepository {
 			e.printStackTrace();
 		}
 	}
+
+	public void updateAlian(Alian alian2) {
+		try {
+			String sql = "update empdata set name=? where points=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, alian2.getName());
+			pstmt.setInt(2, alian2.getPoints());
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public void deleteAlian(String name) {
+		try {
+			String sql = "delete from empdata where name=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, name);
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
