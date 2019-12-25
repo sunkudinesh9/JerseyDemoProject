@@ -57,12 +57,12 @@ public class AlianRepository {
 	public Alian getAlian(String name) {
 		Alian alian = new Alian();
 		try {
-			String sql = "select * from empdata where name=" + name;
+			String sql = "select * from empdata where name=" + "'" + name + "'";
 			stmt = con.createStatement();
 			res = stmt.executeQuery(sql);
 			if (res.next()) {
-				alian.setName(res.getString(0));
-				alian.setPoints(res.getInt(1));
+				alian.setName(res.getString(1));
+				alian.setPoints(res.getInt(2));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -76,13 +76,12 @@ public class AlianRepository {
 		try {
 			String sql = "insert into empdata(name, points) values(?,?)";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(0, alian2.getName());
-			pstmt.setInt(1, alian2.getPoints());
+			pstmt.setString(1, alian2.getName());
+			pstmt.setInt(2, alian2.getPoints());
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		alian.add(alian2);
 	}
 }
