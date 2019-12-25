@@ -27,11 +27,15 @@ public class AlianRepository {
 
 	public Alian getAlian(String name) {
 		for (Alian alian : alian) {
-			if (alian.getName().equalsIgnoreCase("Dinesh")) {
+			if (alian.getName().equalsIgnoreCase(name)) {
 				return alian;
 			}
 		}
-		return null;
+		return new Alian();
 
+	}
+
+	public void createAlian(Alian alian2) {
+		alian.add(alian2);
 	}
 }
