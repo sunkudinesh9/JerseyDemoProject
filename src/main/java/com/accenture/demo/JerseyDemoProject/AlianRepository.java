@@ -42,8 +42,8 @@ public class AlianRepository {
 			res = stmt.executeQuery(sql);
 			while (res.next()) {
 				Alian alian = new Alian();
-				alian.setName(res.getString(1));
-				alian.setPoints(res.getInt(2));
+				alian.setName(res.getString("name"));
+				alian.setPoints(res.getInt("points"));
 				alianList.add(alian);
 			}
 
@@ -61,8 +61,8 @@ public class AlianRepository {
 			stmt = con.createStatement();
 			res = stmt.executeQuery(sql);
 			if (res.next()) {
-				alian.setName(res.getString(1));
-				alian.setPoints(res.getInt(2));
+				alian.setName(res.getString(2));
+				alian.setPoints(res.getInt(3));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
