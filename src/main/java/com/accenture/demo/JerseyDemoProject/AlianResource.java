@@ -27,7 +27,7 @@ public class AlianResource {
 	// We used path parameter which means we can give the values to path of the URL
 	// Ex: http://localhost:8080/JerseyDemoProject/webresources/alian/getalian/1
 	@GET
-	@Path("getalian/{name}")
+	@Path("getalianparam/{name}")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML }) // Produces is use to send the data from server
 																			// to client in a required formate
 	public Alian getAlianWithPathValue(@PathParam("name") String name) {
@@ -35,10 +35,11 @@ public class AlianResource {
 		return alianaRepository.getAlian(name);
 	}
 
-	// We used Query parameter which means we can give the values in the form of query.
+	// We used Query parameter which means we can give the values in the form of
+	// query.
 	// Ex:http://localhost:8080/JerseyDemoProject/webresources/alian/getalian?name="name"
 	@GET
-	@Path("getalian/{name}")
+	@Path("getalianquery")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML }) // Produces is use to send the data from server
 																			// to client in a required formate
 	public Alian getAlianWithQueryValue(@QueryParam("name") String name) {
